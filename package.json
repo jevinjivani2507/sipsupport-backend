@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon -r esm server.js",
+    "start": "node -r esm server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/jevinjivani2507/sipsupport-backend/issues"
   },
-  "homepage": "https://github.com/jevinjivani2507/sipsupport-backend#readme"
+  "homepage": "https://github.com/jevinjivani2507/sipsupport-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "esm": "^3.2.25",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0",
+    "nodemon": "^2.0.20"
+  }
 }
