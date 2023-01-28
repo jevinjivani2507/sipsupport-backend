@@ -1,11 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 import { APP_PORT, DB_URL } from "./config";
+const app = express();
+import routes from "./routes";
+
 
 // Connect to MongoDB
 mongoose.connect(DB_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
@@ -14,5 +17,8 @@ db.once("open", () => {
     console.log("Connected to MongoDB");
 });
 
-const app = express();
+app.use(express.json());
+app.use("/api", routes);
+
+
 app.listen(APP_PORT, () => console.log(`Server is Running at ${APP_PORT}.`));
